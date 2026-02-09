@@ -28,6 +28,12 @@
             100% { transform: translateY(0); opacity: 1; }
         }
         .animate-slide-up { animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .animate-fade-in { animation: fade-in 0.3s ease-in forwards; }
 
         input, select { font-size: 16px !important; }
         .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
@@ -39,16 +45,12 @@
         }
         .loader-dots span:nth-child(1) { animation-delay: -0.32s; }
         .loader-dots span:nth-child(2) { animation-delay: -0.16s; }
-        
-        @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
-        }
+        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col pb-28 pb-safe">
 
-    <!-- Navbar -->
+    <!-- Navbar Sticky -->
     <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-sm border-b border-orange-100">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-14">
@@ -65,55 +67,80 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Header / Hero -->
     <header class="bg-gradient-to-br from-orange-50 to-orange-100 px-4 py-8 text-center">
-        <h1 class="text-3xl font-extrabold text-gray-900">Sabor que hace historia <span class="text-orange-600 block text-2xl">desde 2022</span></h1>
+        <h1 class="text-3xl font-extrabold text-gray-900 leading-tight">Sabor que hace historia <span class="text-orange-600 block text-2xl">desde 2022</span></h1>
         <p class="text-sm text-gray-600 mt-2">Pan artesanal y parrilla en Tabio. ¡Pide fácil por WhatsApp! 📲</p>
     </header>
 
-    <!-- Recomendados -->
+    <!-- Los Más Pedidos -->
     <section id="stars" class="py-8 bg-white px-4">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-xl font-bold mb-6 flex items-center gap-2">⭐ Los Más Pedidos</h2>
-            <div class="space-y-6">
-                <!-- Tablita -->
+            <div class="space-y-4">
+                <!-- Tablita de Carnes -->
                 <div class="bg-white rounded-2xl p-5 border-2 border-orange-200 shadow-lg relative">
-                    <div class="absolute top-0 right-0 bg-orange-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase">Top Ventas</div>
-                    <div class="flex justify-between">
+                    <div class="absolute top-0 right-0 bg-orange-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider text-center">Top Ventas</div>
+                    <div class="flex justify-between items-start">
                         <div class="w-2/3">
-                            <h3 class="text-lg font-bold">Tablita de Carnes</h3>
-                            <p class="text-xs text-gray-500 mt-1">3 Carnes (Res, Pollo, Cerdo), Papas Fritas, salsas y 3 vegetales.</p>
+                            <h3 class="text-lg font-bold text-gray-900">Tablita de Carnes</h3>
+                            <p class="text-xs text-gray-500 mt-1 line-clamp-2">3 Carnes (Res, Pollo, Cerdo), Papas Fritas, salsas y vegetales frescos.</p>
                         </div>
                         <div class="text-4xl">🥩</div>
                     </div>
                     <div class="mt-4 flex items-center justify-between">
-                        <span class="text-xl font-extrabold text-orange-700">$34.900</span>
-                        <button onclick="addToCart(100, 'Tablita de Carnes', 34900, false, 'special')" class="bg-orange-600 text-white px-5 py-2 rounded-full text-xs font-bold shadow-md">AGREGAR +</button>
+                        <div class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-1 rounded-md text-[10px] font-bold uppercase">💧 INCLUYE AGUA</div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-xl font-extrabold text-orange-700">$34.900</span>
+                            <button onclick="addToCart(100, 'Tablita de Carnes', 34900, false, 'special')" class="bg-orange-600 text-white px-5 py-2 rounded-full text-xs font-bold mt-1 shadow-md">AGREGAR +</button>
+                        </div>
                     </div>
                 </div>
-                <!-- De la casa -->
-                <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-md">
-                    <div class="flex justify-between">
+
+                <!-- Bowl de Carnes Fit -->
+                <div class="bg-white rounded-2xl p-5 border-2 border-green-200 shadow-lg relative">
+                    <div class="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider text-center">Saludable 🌱</div>
+                    <div class="flex justify-between items-start">
                         <div class="w-2/3">
-                            <h3 class="text-lg font-bold">Sándwich De La Casa</h3>
-                            <p class="text-xs text-gray-500 mt-1">Res, pechuga gratinada, huevo frito y 3 vegetales.</p>
+                            <h3 class="text-lg font-bold text-gray-900">Bowl de Carnes Fit</h3>
+                            <p class="text-xs text-gray-500 mt-1 line-clamp-2">Res, Pollo, Cerdo, maduro picado, cherry, aguacate y semillas de chía.</p>
+                        </div>
+                        <div class="text-4xl">🥗</div>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-1 rounded-md text-[10px] font-bold uppercase">💧 INCLUYE AGUA</div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-xl font-extrabold text-green-700">$37.900</span>
+                            <button onclick="addToCart(102, 'Bowl de Carnes Fit', 37900, false, 'special')" class="bg-green-600 text-white px-5 py-2 rounded-full text-xs font-bold mt-1 shadow-md">AGREGAR +</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- De la Casa -->
+                <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div class="w-2/3">
+                            <h3 class="text-lg font-bold text-gray-900">Sándwich De La Casa</h3>
+                            <p class="text-xs text-gray-500 mt-1">Res, pechuga gratinada, huevo frito y 3 vegetales frescos.</p>
                         </div>
                         <div class="text-4xl">🥪</div>
                     </div>
-                    <div class="mt-4 flex items-center justify-between">
-                        <span class="text-xl font-extrabold">$24.900</span>
-                        <button onclick="addToCart(1, 'Sándwich De La Casa', 24900, false, 'sandwich')" class="bg-gray-900 text-white px-5 py-2 rounded-full text-xs font-bold">AGREGAR +</button>
+                    <div class="mt-4 flex items-center justify-end">
+                        <div class="flex flex-col items-end">
+                            <span class="text-xl font-extrabold text-gray-900">$24.900</span>
+                            <button onclick="addToCart(1, 'Sándwich De La Casa', 24900, false, 'sandwich')" class="bg-gray-900 text-white px-5 py-2 rounded-full text-xs font-bold mt-1 shadow-md">AGREGAR +</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Menú Completo -->
+    <!-- Menú por Categorías -->
     <section id="menu" class="py-10 bg-gray-50 px-4">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-xl font-bold mb-4">📜 Carta Completa</h2>
-            <div class="flex overflow-x-auto gap-2 pb-4 hide-scrollbar" id="menu-filters">
+            <h2 class="text-xl font-bold mb-4 text-gray-900">📜 Carta Completa</h2>
+            <div class="flex overflow-x-auto gap-2 pb-4 hide-scrollbar mb-4" id="menu-filters">
                 <button class="filter-btn active px-4 py-2 rounded-xl text-sm font-bold bg-gray-900 text-white" data-category="all">Todo</button>
                 <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-gray-600 border border-gray-200" data-category="sandwich">Sándwiches</button>
                 <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-gray-600 border border-gray-200" data-category="burger">Hamburguesas</button>
@@ -124,97 +151,96 @@
         </div>
     </section>
 
-    <!-- Constructor -->
+    <!-- Constructor de Sándwich -->
     <section id="builder" class="py-12 bg-white border-t border-gray-100 px-4">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-6">
-                <span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Personalizado</span>
-                <h2 class="text-2xl font-bold mt-2">🛠️ Crea Tu Sándwich</h2>
-                <p class="text-sm text-gray-500">Precio base: <span class="font-bold text-orange-600">$24.900</span></p>
-            </div>
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Personalizado</span>
+            <h2 class="text-2xl font-bold mt-2 text-gray-900">🛠️ Crea Tu Sándwich</h2>
+            <p class="text-sm text-gray-500 mb-6">Precio base: <span class="font-bold text-orange-600">$24.900</span></p>
 
-            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden text-left max-w-lg mx-auto">
                 <div class="bg-gray-50 px-4 py-3 border-b flex justify-between text-[10px] font-bold text-gray-400">
-                    <span id="step-header-1" class="text-orange-600">1. Pan</span>
-                    <span id="step-header-2">2. Carnes</span>
-                    <span id="step-header-3">3. Salsas</span>
-                    <span id="step-header-4">4. Veg</span>
+                    <span id="step-header-1" class="text-orange-600 uppercase tracking-widest">1. Pan</span>
+                    <span id="step-header-2" class="uppercase tracking-widest">2. Carnes</span>
+                    <span id="step-header-3" class="uppercase tracking-widest">3. Salsas</span>
+                    <span id="step-header-4" class="uppercase tracking-widest">4. Veg</span>
                 </div>
 
                 <div class="p-5">
                     <form id="builder-form">
-                        <!-- Step 1 -->
+                        <!-- Paso 1 -->
                         <div id="step-1" class="builder-step block">
-                            <h3 class="text-base font-bold mb-3">Elige tu Pan:</h3>
+                            <h3 class="text-base font-bold mb-4">Elige tu Pan:</h3>
                             <div class="space-y-3">
-                                <label class="border rounded-xl p-3 flex items-center gap-3"><input type="radio" name="pan" value="Especias" class="w-5 h-5 accent-orange-600" checked> <div><div class="font-bold text-sm">Con Especias</div><div class="text-xs text-gray-500">Base papa y orégano</div></div></label>
-                                <label class="border rounded-xl p-3 flex items-center gap-3"><input type="radio" name="pan" value="Napolitano" class="w-5 h-5 accent-orange-600"> <div><div class="font-bold text-sm">Napolitano</div><div class="text-xs text-gray-500">Queso parmesano y orégano</div></div></label>
+                                <label class="border rounded-xl p-3 flex items-center gap-3 active:bg-orange-50 cursor-pointer"><input type="radio" name="pan" value="Especias" class="w-5 h-5 accent-orange-600" checked> <div><div class="font-bold text-sm">Con Especias</div><div class="text-xs text-gray-500">Base papa y orégano</div></div></label>
+                                <label class="border rounded-xl p-3 flex items-center gap-3 active:bg-orange-50 cursor-pointer"><input type="radio" name="pan" value="Napolitano" class="w-5 h-5 accent-orange-600"> <div><div class="font-bold text-sm">Napolitano</div><div class="text-xs text-gray-500">Queso parmesano y orégano</div></div></label>
                             </div>
-                            <button type="button" onclick="nextStep(2)" class="w-full mt-6 bg-gray-900 text-white py-3 rounded-xl font-bold">Siguiente ➡</button>
                             
-                            <!-- AI Chef -->
-                            <div class="mt-6 bg-gradient-to-r from-orange-400 to-yellow-400 p-0.5 rounded-xl">
+                            <button type="button" onclick="nextStep(2)" class="w-full mt-6 bg-gray-900 text-white py-4 rounded-xl font-bold">Siguiente Paso ➡</button>
+
+                            <!-- CHEF IA -->
+                            <div class="mt-6 bg-gradient-to-r from-orange-400 to-yellow-400 p-0.5 rounded-xl shadow-sm">
                                 <div class="bg-white p-3 rounded-[10px]">
-                                    <div class="flex items-center gap-2 mb-1"><span class="text-lg">🧑‍🍳</span><h3 class="font-bold text-sm">Chef Lotto AI</h3></div>
-                                    <p class="text-[10px] text-gray-500 mb-2">Escribe tu antojo y la IA arma tu sándwich:</p>
+                                    <div class="flex items-center gap-2 mb-1"><span class="text-lg">🧑‍🍳</span><h3 class="font-bold text-sm text-gray-800">Chef Lotto AI</h3></div>
+                                    <p class="text-[10px] text-gray-500 mb-2">¿Indeciso? Escribe tu antojo y la IA arma tu sándwich:</p>
                                     <div class="flex gap-2">
-                                        <input type="text" id="ai-prompt" placeholder="Ej: Algo picante con pollo..." class="w-full bg-gray-50 border rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-1 focus:ring-orange-300">
-                                        <button type="button" onclick="askChefLotto()" class="bg-gray-900 text-white px-3 rounded-lg font-bold text-xs flex-shrink-0">
+                                        <input type="text" id="ai-prompt" placeholder="Ej: Algo picante con pollo..." class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-orange-300">
+                                        <button type="button" onclick="askChefLotto()" class="bg-gray-900 text-white px-3 py-1.5 rounded-lg font-bold text-xs flex-shrink-0 active:bg-gray-700 flex items-center justify-center min-w-[70px]">
                                             <span id="ai-btn-text">Armar ✨</span>
-                                            <div id="ai-loader" class="hidden loader-dots"><span></span><span></span><span></span></div>
+                                            <div id="ai-loader" class="hidden loader-dots text-white"><span></span><span></span><span></span></div>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Step 2 -->
+                        <!-- Paso 2 -->
                         <div id="step-2" class="builder-step hidden">
                             <h3 class="text-base font-bold mb-3">Proteínas (Mín 1, Máx 2):</h3>
                             <div class="grid grid-cols-2 gap-2">
-                                <label class="border rounded-lg p-2 text-center"><input type="checkbox" name="protein" value="Pollo" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-sm">Pechuga</span></label>
-                                <label class="border rounded-lg p-2 text-center"><input type="checkbox" name="protein" value="Ternera" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-sm">Ternera</span></label>
-                                <label class="border rounded-lg p-2 text-center"><input type="checkbox" name="protein" value="Cordero" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-sm">Cordero</span></label>
-                                <label class="border rounded-lg p-2 text-center"><input type="checkbox" name="protein" value="Pavo" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-sm">Jamón Pavo</span></label>
-                                <label class="border rounded-lg p-2 text-center"><input type="checkbox" name="protein" value="Pernil" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-sm">Pernil Cerdo</span></label>
+                                <label class="border rounded-lg p-2 text-center active:bg-orange-50 cursor-pointer"><input type="checkbox" name="protein" value="Pollo" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-xs font-bold">Pechuga</span></label>
+                                <label class="border rounded-lg p-2 text-center active:bg-orange-50 cursor-pointer"><input type="checkbox" name="protein" value="Ternera" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-xs font-bold">Ternera</span></label>
+                                <label class="border rounded-lg p-2 text-center active:bg-orange-50 cursor-pointer"><input type="checkbox" name="protein" value="Cordero" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-xs font-bold">Cordero</span></label>
+                                <label class="border rounded-lg p-2 text-center active:bg-orange-50 cursor-pointer"><input type="checkbox" name="protein" value="Pavo" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-xs font-bold">Jamón Pavo</span></label>
+                                <label class="border rounded-lg p-2 text-center active:bg-orange-50 cursor-pointer"><input type="checkbox" name="protein" value="Pernil" class="accent-orange-600 block mx-auto mb-1 w-5 h-5"><span class="text-xs font-bold">Pernil Cerdo</span></label>
                             </div>
-                            <div class="mt-6 flex gap-3">
-                                <button type="button" onclick="prevStep(1)" class="w-1/3 bg-gray-100 text-gray-600 py-3 rounded-xl font-bold">Atrás</button>
-                                <button type="button" onclick="nextStep(3)" class="w-2/3 bg-gray-900 text-white py-3 rounded-xl font-bold">Siguiente ➡</button>
+                            <div class="mt-6 flex gap-2">
+                                <button type="button" onclick="prevStep(1)" class="w-1/3 bg-gray-100 text-gray-500 py-4 rounded-xl font-bold text-sm text-center">Atrás</button>
+                                <button type="button" onclick="nextStep(3)" class="w-2/3 bg-gray-900 text-white py-4 rounded-xl font-bold">Siguiente ➡</button>
                             </div>
                         </div>
 
-                        <!-- Step 3 (Salsas) -->
+                        <!-- Paso 3 -->
                         <div id="step-3" class="builder-step hidden">
-                            <h3 class="text-base font-bold mb-3">Salsas (Máx 3):</h3>
-                            <div class="grid grid-cols-2 gap-2">
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="sauce" value="Maíz Lotto" class="accent-orange-600"><span class="text-xs">Maíz Lotto</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="sauce" value="Ajo Lotto" class="accent-orange-600"><span class="text-xs">Ajo Lotto</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="sauce" value="Showy" class="accent-orange-600"><span class="text-xs">Showy</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="sauce" value="BBQ" class="accent-orange-600"><span class="text-xs">BBQ</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="sauce" value="Chipotle" class="accent-orange-600"><span class="text-xs">Chipotle</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="sauce" value="Guacamole" class="accent-orange-600"><span class="text-xs">Guacamole</span></label>
+                            <h3 class="text-base font-bold mb-3 text-gray-800">Salsas (Máx 3):</h3>
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Maíz Lotto" class="accent-orange-600"><span class="font-bold text-gray-700">Maíz Lotto</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Ajo Lotto" class="accent-orange-600"><span class="font-bold text-gray-700">Ajo Lotto</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Showy" class="accent-orange-600"><span class="font-bold text-gray-700">Showy</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="BBQ" class="accent-orange-600"><span class="font-bold text-gray-700">BBQ</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Chipotle" class="accent-orange-600"><span class="font-bold text-gray-700">Chipotle</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Guacamole" class="accent-orange-600"><span class="font-bold text-gray-700">Guacamole</span></label>
                             </div>
-                            <div class="mt-6 flex gap-3">
-                                <button type="button" onclick="prevStep(2)" class="w-1/3 bg-gray-100 text-gray-600 py-3 rounded-xl font-bold">Atrás</button>
-                                <button type="button" onclick="nextStep(4)" class="w-2/3 bg-gray-900 text-white py-3 rounded-xl font-bold">Siguiente ➡</button>
+                            <div class="mt-6 flex gap-2">
+                                <button type="button" onclick="prevStep(2)" class="w-1/3 bg-gray-100 text-gray-500 py-4 rounded-xl font-bold text-sm text-center">Atrás</button>
+                                <button type="button" onclick="nextStep(4)" class="w-2/3 bg-gray-900 text-white py-4 rounded-xl font-bold">Siguiente ➡</button>
                             </div>
                         </div>
 
-                        <!-- Step 4 (Veg) -->
+                        <!-- Paso 4 -->
                         <div id="step-4" class="builder-step hidden">
-                            <h3 class="text-base font-bold mb-3">Vegetales (Máx 3):</h3>
-                            <div class="grid grid-cols-2 gap-2">
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="veg" value="Lechuga" class="accent-green-600"><span class="text-xs">Lechuga</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="veg" value="Rúgula" class="accent-green-600"><span class="text-xs">Rúgula</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="veg" value="Tomate" class="accent-green-600"><span class="text-xs">Tomate</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="veg" value="Pepinillos" class="accent-green-600"><span class="text-xs">Pepinillos</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="veg" value="Cebolla Caramelizada" class="accent-green-600"><span class="text-xs">Cebolla</span></label>
-                                <label class="border rounded-lg p-2 flex items-center gap-2"><input type="checkbox" name="veg" value="Jalapeños" class="accent-green-600"><span class="text-xs">Jalapeños</span></label>
+                            <h3 class="text-base font-bold mb-3 text-gray-800">Vegetales (Máx 3):</h3>
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-green-50"><input type="checkbox" name="veg" value="Lechuga" class="accent-green-600"><span>Lechuga</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-green-50"><input type="checkbox" name="veg" value="Rúgula" class="accent-green-600"><span>Rúgula</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-green-50"><input type="checkbox" name="veg" value="Tomate" class="accent-green-600"><span>Tomate</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-green-50"><input type="checkbox" name="veg" value="Pepinillos" class="accent-green-600"><span>Pepinillos</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-green-50"><input type="checkbox" name="veg" value="Cebolla" class="accent-green-600"><span>Cebolla</span></label>
+                                <label class="border rounded-lg p-2 flex items-center gap-2 cursor-pointer active:bg-green-50"><input type="checkbox" name="veg" value="Jalapeños" class="accent-green-600"><span>Jalapeños</span></label>
                             </div>
-                            <div class="mt-6 flex gap-3">
-                                <button type="button" onclick="prevStep(3)" class="w-1/3 bg-gray-100 text-gray-600 py-3 rounded-xl font-bold">Atrás</button>
-                                <button type="button" onclick="finishBuilder()" class="w-2/3 bg-orange-600 text-white py-3 rounded-xl font-bold">¡AGREGAR!</button>
+                            <div class="mt-6 flex gap-2">
+                                <button type="button" onclick="prevStep(3)" class="w-1/3 bg-gray-100 text-gray-500 py-4 rounded-xl font-bold text-sm text-center">Atrás</button>
+                                <button type="button" onclick="finishBuilder()" class="w-2/3 bg-orange-600 text-white py-4 rounded-xl font-bold shadow-lg active:scale-95 transition-transform">¡AGREGAR AL PEDIDO!</button>
                             </div>
                         </div>
                     </form>
@@ -223,130 +249,179 @@
         </div>
     </section>
 
-    <!-- Footer with Brand Logo -->
-    <footer class="bg-white py-12 px-4 border-t border-orange-50">
-        <div class="max-w-7xl mx-auto flex flex-col items-center">
-            <div class="text-center mb-6">
-                <p class="text-xs font-extrabold text-gray-300 uppercase tracking-[0.2em] mb-2">Diseñado y Desarrollado por</p>
-                <div class="flex items-center gap-2 group cursor-default">
-                    <div class="bg-gray-900 text-white w-8 h-8 rounded-lg flex items-center justify-center font-black text-lg shadow-lg group-hover:bg-orange-600 transition-colors">PL</div>
-                    <span class="text-xl font-black text-gray-900 tracking-tighter">PyLoto<span class="text-orange-600">-Lab</span></span>
-                </div>
-            </div>
-            <p class="text-[10px] text-gray-400 font-medium">&copy; 2026 Lotto Sandwichería. Todos los derechos reservados.</p>
+    <!-- Footer PyLoto-Lab -->
+    <footer class="bg-white py-12 px-4 border-t border-orange-50 mt-auto text-center">
+        <p class="text-[10px] font-extrabold text-gray-300 uppercase tracking-[0.2em] mb-3">Diseñado y Desarrollado por</p>
+        <div class="flex items-center justify-center gap-2 group cursor-default">
+            <div class="bg-gray-900 text-white w-8 h-8 rounded-lg flex items-center justify-center font-black text-lg shadow-lg group-hover:bg-orange-600 transition-colors">PL</div>
+            <span class="text-xl font-black text-gray-900 tracking-tighter">PyLoto<span class="text-orange-600">-Lab</span></span>
         </div>
+        <p class="text-[9px] text-gray-400 mt-4 font-medium uppercase tracking-[0.3em]">Tabio, Cundinamarca &copy; 2026</p>
     </footer>
 
-    <!-- Floating Cart Button -->
+    <!-- Botón Flotante Carrito -->
     <div class="fixed bottom-6 right-4 z-50">
-        <button onclick="toggleCart()" id="cart-btn" class="bg-gray-900 text-white rounded-full w-16 h-16 shadow-2xl flex flex-col items-center justify-center border-2 border-white relative">
+        <button onclick="toggleCart()" id="cart-btn" class="bg-gray-900 text-white rounded-full w-16 h-16 shadow-2xl flex flex-col items-center justify-center border-2 border-white relative active:scale-95 transition-transform">
             <span class="text-2xl">🛒</span>
             <span id="cart-count" class="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold w-6 h-6 flex items-center justify-center rounded-full border-2 border-white">0</span>
         </button>
     </div>
 
-    <!-- Modals -->
-    <!-- Upsell -->
-    <div id="upsell-modal" class="fixed inset-0 z-[60] hidden bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center">
-        <div class="bg-white w-full sm:max-w-md rounded-t-3xl sm:rounded-2xl animate-slide-up overflow-hidden">
-            <div class="bg-orange-50 p-5 text-center border-b border-orange-100">
-                <h3 class="text-xl font-extrabold">¡Hazlo Combo y Ahorra! 🍟🥤</h3>
+    <!-- MODALES -->
+    
+    <!-- Confirmación -->
+    <div id="confirmation-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm animate-fade-in">
+        <div class="bg-white rounded-3xl p-8 text-center shadow-2xl w-full max-w-xs transform animate-slide-up">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
             </div>
-            <div class="p-4 space-y-3">
-                <div onclick="addComboToCart(20, 'Combo Ligero', 6900)" class="flex justify-between p-3 border rounded-xl active:bg-orange-50 cursor-pointer">
-                    <div><div class="font-bold text-sm">Combo Ligero</div><div class="text-[10px] text-gray-500">Gaseosa 250ml + Papas Chip/Platanitos</div></div>
-                    <span class="bg-orange-100 text-orange-700 px-3 py-1.5 rounded-lg text-xs font-bold">+$6.900</span>
+            <h3 class="text-xl font-black text-gray-900 mb-2">¡Producto Agregado!</h3>
+            <p class="text-gray-500 text-sm mb-6">Tu elección ya está en el carrito lista para pedir.</p>
+            <button onclick="closeConfirmation()" class="w-full bg-gray-900 text-white py-3 rounded-2xl font-bold shadow-lg">¡Excelente!</button>
+        </div>
+    </div>
+
+    <!-- Sugerencia IA (Chef IA) -->
+    <div id="ai-modal" class="fixed inset-0 z-[110] hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border-2 border-yellow-400 transform animate-slide-up">
+            <div class="bg-gradient-to-r from-yellow-400 to-orange-500 p-5 text-center">
+                <span class="text-4xl block mb-2">🧑‍🍳✨</span>
+                <h3 class="text-xl font-black text-gray-900" id="ai-modal-title">Propuesta del Chef</h3>
+            </div>
+            <div class="p-6 text-left">
+                <h4 class="font-bold text-lg text-gray-900 mb-1" id="ai-creation-name"></h4>
+                <p class="text-sm text-gray-600 italic border-l-4 border-orange-300 pl-3 py-1 mb-4" id="ai-creation-reason"></p>
+                
+                <div class="bg-gray-50 rounded-xl p-4 mb-6 border border-gray-100">
+                    <p class="text-[10px] text-gray-400 uppercase font-bold mb-2 tracking-wider">Ingredientes seleccionados:</p>
+                    <ul class="text-xs space-y-1 text-gray-800" id="ai-creation-ingredients"></ul>
                 </div>
-                <div onclick="addComboToCart(21, 'Combo Tradicional', 8900)" class="flex justify-between p-3 border rounded-xl active:bg-orange-50 cursor-pointer">
-                    <div><div class="font-bold text-sm">Combo Tradicional</div><div class="text-[10px] text-gray-500">Gaseosa 400ml + Papas Chip/Platanitos</div></div>
-                    <span class="bg-orange-100 text-orange-700 px-3 py-1.5 rounded-lg text-xs font-bold">+$8.900</span>
+
+                <div class="space-y-3">
+                    <button onclick="acceptAiRecommendation()" class="w-full bg-green-600 text-white py-3.5 rounded-2xl font-black shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-2">
+                        ¡Lo quiero! 😋 <span class="bg-green-700 px-2 py-0.5 rounded-md text-[10px]">$24.900</span>
+                    </button>
+                    <button onclick="closeAiModal()" class="w-full text-gray-400 font-bold text-sm hover:text-gray-600">No gracias, intentar de nuevo</button>
                 </div>
-                <div onclick="addComboToCart(22, 'Combo Natural', 9500)" class="flex justify-between p-3 border rounded-xl active:bg-orange-50 cursor-pointer">
-                    <div><div class="font-bold text-sm">Combo Natural</div><div class="text-[10px] text-gray-500">Jugo en Agua + Papas Chip/Platanitos</div></div>
-                    <span class="bg-orange-100 text-orange-700 px-3 py-1.5 rounded-lg text-xs font-bold">+$9.500</span>
-                </div>
-                <div onclick="addComboToCart(23, 'Combo Cremoso', 10500)" class="flex justify-between p-3 border rounded-xl active:bg-orange-50 cursor-pointer">
-                    <div><div class="font-bold text-sm">Combo Cremoso</div><div class="text-[10px] text-gray-500">Jugo en Leche + Papas Chip/Platanitos</div></div>
-                    <span class="bg-orange-100 text-orange-700 px-3 py-1.5 rounded-lg text-xs font-bold">+$10.500</span>
-                </div>
-                <button onclick="closeUpsell()" class="w-full mt-2 py-3 text-gray-400 text-sm font-bold">No gracias, solo el sándwich</button>
             </div>
         </div>
     </div>
 
-    <!-- Salsas para ítems de carta -->
+    <!-- Modal de Salsas -->
     <div id="sauce-modal" class="fixed inset-0 z-[80] hidden bg-black/70 flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up">
-            <div class="bg-orange-50 p-4 text-center border-b">
-                <h3 class="text-xl font-bold">🥣 Elige tus Salsas</h3>
-                <p class="text-[10px] text-gray-500">Selecciona máximo 3</p>
-            </div>
+        <div class="bg-white w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl animate-slide-up">
+            <div class="bg-orange-50 p-4 text-center border-b"><h3 class="text-xl font-bold">🥣 Elige tus Salsas</h3><p class="text-[10px] text-gray-500 font-bold uppercase mt-1">Máximo 3 opciones</p></div>
             <div class="p-4 grid grid-cols-2 gap-2" id="sauce-list-modal"></div>
-            <div class="p-4 border-t"><button onclick="confirmItemSauces()" class="w-full bg-orange-600 text-white py-3 rounded-xl font-bold">Siguiente ➡</button></div>
+            <div class="p-4 border-t"><button onclick="confirmItemSauces()" class="w-full bg-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Siguiente Paso ➡</button></div>
         </div>
     </div>
 
-    <!-- Vegetales para ítems de carta -->
+    <!-- Modal de Vegetales -->
     <div id="veg-modal" class="fixed inset-0 z-[80] hidden bg-black/70 flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up">
-            <div class="bg-green-50 p-4 text-center border-b">
-                <h3 class="text-xl font-bold">🥗 Elige Vegetales</h3>
-                <p class="text-[10px] text-gray-500">Opcional. Máximo 3</p>
-            </div>
+        <div class="bg-white w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl animate-slide-up">
+            <div class="bg-green-50 p-4 text-center border-b"><h3 class="text-xl font-bold text-green-900">🥗 Vegetales</h3><p class="text-[10px] text-green-700 font-bold uppercase mt-1">Opcional - Máximo 3</p></div>
             <div class="p-4 grid grid-cols-2 gap-2" id="veg-list-modal"></div>
-            <div class="p-4 border-t"><button onclick="confirmItemVeggies()" class="w-full bg-green-600 text-white py-3 rounded-xl font-bold">Confirmar y Agregar</button></div>
+            <div class="p-4 border-t"><button onclick="confirmItemVeggies()" class="w-full bg-green-600 text-white py-3 rounded-xl font-bold shadow-lg">Agregar al Pedido</button></div>
         </div>
     </div>
 
-    <!-- Sabores Jugos -->
+    <!-- Upsell Combo -->
+    <div id="upsell-modal" class="fixed inset-0 z-[60] hidden bg-black/70 flex items-end sm:items-center justify-center">
+        <div class="bg-white w-full sm:max-w-md rounded-t-3xl sm:rounded-2xl animate-slide-up overflow-hidden shadow-2xl">
+            <div class="bg-orange-50 p-5 text-center border-b border-orange-100"><h3 class="text-xl font-extrabold text-gray-900">¡Hazlo Combo y Ahorra! 🍟🥤</h3></div>
+            <div class="p-4 space-y-3">
+                <div onclick="addComboToCart(20, 'Combo Ligero', 6900)" class="flex justify-between items-center p-3 border rounded-xl active:bg-orange-50 cursor-pointer group transition-colors">
+                    <div><div class="font-bold text-sm text-gray-900">Combo Ligero</div><div class="text-[10px] text-gray-500">Gaseosa 250ml + Papas/Platanitos</div></div>
+                    <span class="bg-orange-100 text-orange-700 px-3 py-1.5 rounded-lg text-xs font-black group-active:bg-orange-200">+$6.900</span>
+                </div>
+                <div onclick="addComboToCart(21, 'Combo Tradicional', 8900)" class="flex justify-between items-center p-3 border rounded-xl active:bg-orange-50 cursor-pointer group transition-colors">
+                    <div><div class="font-bold text-sm text-gray-900">Combo Tradicional</div><div class="text-[10px] text-gray-500">Gaseosa 400ml + Papas/Platanitos</div></div>
+                    <span class="bg-orange-100 text-orange-700 px-3 py-1.5 rounded-lg text-xs font-black group-active:bg-orange-200">+$8.900</span>
+                </div>
+                <div onclick="addComboToCart(23, 'Combo Cremoso', 10500)" class="flex justify-between items-center p-3 border rounded-xl active:bg-orange-50 cursor-pointer group transition-colors">
+                    <div><div class="font-bold text-sm text-gray-900">Combo Cremoso</div><div class="text-[10px] text-gray-500">Jugo en Leche + Papas/Platanitos</div></div>
+                    <span class="bg-orange-100 text-orange-700 px-3 py-1.5 rounded-lg text-xs font-black group-active:bg-orange-200">+$10.500</span>
+                </div>
+                <button onclick="closeUpsell()" class="w-full mt-2 py-3 text-gray-400 text-sm font-bold hover:text-gray-600">No gracias, solo el plato</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sabores de Jugos -->
     <div id="flavor-modal" class="fixed inset-0 z-[80] hidden bg-black/70 flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up">
-            <div class="bg-orange-50 p-4 text-center border-b"><h3 class="text-xl font-bold">🍓 Sabor del Jugo</h3></div>
+        <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
+            <div class="bg-orange-50 p-4 text-center border-b font-black text-gray-900">🍓 Sabor del Jugo</div>
             <div class="p-4 grid grid-cols-2 gap-3">
-                <button onclick="selectFlavor('Fresa')" class="p-3 border rounded-xl hover:bg-orange-50 font-bold">🍓 Fresa</button>
-                <button onclick="selectFlavor('Maracuyá')" class="p-3 border rounded-xl hover:bg-orange-50 font-bold">🟡 Maracuyá</button>
-                <button onclick="selectFlavor('Mora')" class="p-3 border rounded-xl hover:bg-orange-50 font-bold">🟣 Mora</button>
-                <button onclick="selectFlavor('Lulo')" class="p-3 border rounded-xl hover:bg-orange-50 font-bold">🟢 Lulo</button>
+                <button onclick="selectFlavor('Fresa')" class="p-4 border rounded-2xl font-bold active:bg-orange-100 hover:bg-orange-50">🍓 Fresa</button>
+                <button onclick="selectFlavor('Maracuyá')" class="p-4 border rounded-2xl font-bold active:bg-orange-100 hover:bg-orange-50">🟡 Maracuyá</button>
+                <button onclick="selectFlavor('Mora')" class="p-4 border rounded-2xl font-bold active:bg-orange-100 hover:bg-orange-50">🟣 Mora</button>
+                <button onclick="selectFlavor('Lulo')" class="p-4 border rounded-2xl font-bold active:bg-orange-100 hover:bg-orange-50">🟢 Lulo</button>
             </div>
         </div>
     </div>
 
     <!-- Carrito Modal -->
-    <div id="cart-modal" class="fixed inset-0 z-[70] hidden bg-white flex flex-col">
-        <div class="p-4 bg-gray-900 text-white flex justify-between items-center flex-shrink-0 pt-safe">
-            <h2 class="font-bold">Tu Carrito Lotto 🛒</h2>
-            <button onclick="toggleCart()" class="p-2">✕</button>
+    <div id="cart-modal" class="fixed inset-0 z-[70] hidden bg-white flex flex-col animate-slide-up">
+        <div class="p-4 bg-gray-900 text-white flex justify-between items-center flex-shrink-0 pt-safe shadow-lg">
+            <h2 class="font-extrabold text-lg">Tu Pedido Lotto 🛒</h2>
+            <button onclick="toggleCart()" class="p-2 text-2xl active:scale-90">&times;</button>
         </div>
         <div id="cart-items" class="flex-grow overflow-y-auto p-4 space-y-3 bg-gray-50"></div>
-        <div class="p-5 bg-white border-t pb-safe">
-            <div class="flex justify-between items-center mb-4"><span class="text-gray-500">Total</span><span id="cart-total" class="text-2xl font-extrabold text-gray-900">$0</span></div>
-            <input type="text" id="client-name" placeholder="Tu Nombre" class="w-full p-3 mb-3 bg-gray-50 border rounded-xl font-medium outline-none">
-            <select id="payment-method" class="w-full p-3 mb-4 bg-orange-100 border-2 border-orange-500 rounded-xl font-bold text-gray-900 appearance-none">
-                <option value="Transferencia">Nequi / Daviplata</option>
-                <option value="Efectivo">Efectivo</option>
-                <option value="Tarjeta">Tarjeta de Crédito</option>
-            </select>
-            <button onclick="sendToWhatsApp()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold shadow-lg flex justify-center items-center gap-2">Enviar Pedido a WhatsApp</button>
+        <div class="p-5 bg-white border-t pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+            <div class="flex justify-between items-center mb-4"><span class="text-gray-500 font-bold uppercase tracking-widest text-[10px]">Total a pagar</span><span id="cart-total" class="text-3xl font-black text-gray-900">$0</span></div>
+            <input type="text" id="client-name" placeholder="Tu Nombre Completo" class="w-full p-4 mb-3 bg-gray-50 border border-gray-200 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-orange-500">
+            <div class="relative mb-4">
+                <select id="payment-method" class="w-full p-4 bg-orange-100 border-2 border-orange-500 rounded-2xl font-black text-gray-900 appearance-none outline-none">
+                    <option value="Transferencia">Transferencia (Nequi / Davi)</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Tarjeta">Tarjeta de Crédito</option>
+                </select>
+                <span class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-orange-600 font-black">▼</span>
+            </div>
+            <button onclick="sendToWhatsApp()" class="w-full bg-green-500 text-white py-4 rounded-2xl font-black text-lg shadow-xl flex justify-center items-center gap-2 active:bg-green-600 transition-all">Enviar Pedido a WhatsApp</button>
         </div>
     </div>
 
     <script>
+        const apiKey = ""; 
+        let aiRecommendation = null;
+
         const menuItems = [
-            { id: 1, name: "De la Casa", price: 24900, desc: "Res, pechuga gratinada, huevo frito, 3 Vegetales.", cat: "sandwich", emoji: "🥪" },
+            // SANDWICHES
+            { id: 1, name: "De la Casa", price: 24900, desc: "Res jugosa, pechuga gratinada, huevo frito, 3 Vegetales.", cat: "sandwich", emoji: "🥪" },
             { id: 2, name: "Desmechado", price: 24900, desc: "Cerdo desmechado, pechuga gratinada, huevo frito, 3 Vegetales.", cat: "sandwich", emoji: "🐷" },
-            { id: 3, name: "Atún", price: 22900, desc: "Atún, queso fundido, Salsas Lotto, 3 Vegetales.", cat: "sandwich", emoji: "🐟" },
+            { id: 3, name: "Atún", price: 22900, desc: "Lomos de atún, queso fundido, Salsas Lotto, 3 Vegetales.", cat: "sandwich", emoji: "🐟" },
+            { id: 4, name: "Vegetariano", price: 22900, desc: "Champiñones, berenjenas asadas, huevo y vegetales.", cat: "sandwich", emoji: "🍄" },
             { id: 5, name: "Fachero", price: 24900, desc: "Res, Maíz Tierno, Chorizo, Queso fundido, 3 Vegetales.", cat: "sandwich", emoji: "🌽" },
-            { id: 6, name: "Poderoso", price: 23900, desc: "Pechuga, tocineta, queso, Huevo Frito, 3 Vegetales.", cat: "sandwich", emoji: "💪" },
+            { id: 6, name: "Poderoso", price: 23900, desc: "Filete pechuga, tocineta, queso, Huevo Frito, 3 Vegetales.", cat: "sandwich", emoji: "💪" },
             { id: 7, name: "Curado", price: 25900, desc: "Jamón Serrano, Tocineta, Rúgula, Queso Gratinado.", cat: "sandwich", emoji: "🍖" },
-            { id: 9, name: "Hamburguesa Lotto", price: 26900, desc: "Res, Cerdo, Tocineta, Queso fundido, 3 Vegetales.", cat: "burger", emoji: "🍔" },
-            { id: 10, name: "Hamb. Criolla", price: 26900, desc: "Res, Queso, Chorizo, Maduro, Vegetales.", cat: "burger", emoji: "🍖" },
-            { id: 32, name: "Waf. Yuca Tradicional", price: 10000, desc: "Sin gluten. Con bastante queso costeño.", cat: "sweet", emoji: "🧇" },
-            { id: 30, name: "Postre Lotto 10oz", price: 12000, desc: "Crema, Frutos Rojos, Semillas de Chia.", cat: "sweet", emoji: "🍨" },
-            { id: 14, name: "Jugo en Leche", price: 6900, desc: "Variedad de sabores cremosos.", cat: "drinks", emoji: "🥤" },
-            { id: 16, name: "Jugo en Agua", price: 4900, desc: "Variedad de sabores refrescantes.", cat: "drinks", emoji: "🥤" },
-            { id: 15, name: "Limonada Natural", price: 4000, desc: "100% natural.", cat: "drinks", emoji: "🍋" },
-            { id: 100, name: "Tablita de Carnes", price: 34900, desc: "3 Carnes, Papas, Salsas, Vegetales.", cat: "special", emoji: "🥩" },
-            { id: 102, name: "Bowl de Carnes Fit", price: 37900, desc: "3 Carnes, maduro, aguacate, chia + Agua.", cat: "special", emoji: "🥗" }
+            { id: 8, name: "Sándwich de Huevo", price: 19900, desc: "Huevo, tocineta, queso + Café con Leche.", cat: "sandwich", emoji: "🍳" },
+
+            // HAMBURGUESAS
+            { id: 9, name: "Hamburguesa Lotto", price: 26900, desc: "Res, Cerdo, Tocineta ahumada, Queso fundido.", cat: "burger", emoji: "🍔" },
+            { id: 10, name: "Hamb. Criolla", price: 26900, desc: "Res, Queso, Chorizo santandereano, Maduro frito.", cat: "burger", emoji: "🍌" },
+            { id: 11, name: "Doble Carne", price: 29900, desc: "Doble Res, Tocineta, Queso fundido, 3 Vegetales.", cat: "burger", emoji: "🥩" },
+
+            // WAFFLES Y POSTRES
+            { id: 32, name: "Waf. Yuca Tradicional", price: 10000, desc: "Sin gluten. Queso costeño rallado.", cat: "sweet", emoji: "🧇" },
+            { id: 33, name: "Waf. Yuca c/ Huevo", price: 13000, desc: "Sin gluten. Huevo cocido y queso costeño.", cat: "sweet", emoji: "🥚" },
+            { id: 34, name: "Waf. Yuca Napolitano", price: 14000, desc: "Sin gluten. Tomate fresco y queso costeño.", cat: "sweet", emoji: "🍅" },
+            { id: 35, name: "Waf. Yuca Frutas", price: 17000, desc: "Sin gluten. Banano, arándanos, fresa y chocolate.", cat: "sweet", emoji: "🍓" },
+            { id: 30, name: "Postre Lotto 10oz", price: 12000, desc: "Crema, Frutos Rojos, Semillas de Chia, Frutas.", cat: "sweet", emoji: "🍨" },
+            { id: 31, name: "Postre Lotto 16oz", price: 19000, desc: "Copa Grande: Crema, Frutos Rojos, Chia y Frutas.", cat: "sweet", emoji: "🍨" },
+            { id: 12, name: "Capricho Dulce", price: 17900, desc: "Wafle con Chocolate y toppings + Café.", cat: "sweet", emoji: "🧇" },
+
+            // BEBIDAS
+            { id: 14, name: "Jugo en Leche", price: 6900, desc: "Fresa, Maracuyá, Mora o Lulo.", cat: "drinks", emoji: "🥤" },
+            { id: 16, name: "Jugo en Agua", price: 4900, desc: "Fresa, Maracuyá, Mora o Lulo.", cat: "drinks", emoji: "🥤" },
+            { id: 15, name: "Limonada Natural", price: 4000, desc: "Refrescante 100% natural.", cat: "drinks", emoji: "🍋" },
+            { id: 17, name: "Gaseosa Pet", price: 4500, desc: "Coca-Cola / Postobón.", cat: "drinks", emoji: "🥤" },
+
+            // ESPECIALES
+            { id: 100, name: "Tablita de Carnes", price: 34900, cat: "special" },
+            { id: 102, name: "Bowl de Carnes Fit", price: 37900, cat: "special" }
         ];
 
         let cart = [];
@@ -361,20 +436,15 @@
 
         function renderMenu(cat) {
             const grid = document.getElementById('menu-grid');
+            if (!grid) return;
             grid.innerHTML = '';
+            // El filtro 'all' muestra todos los productos excepto los especiales (Tablita/Bowl) que están en el header
             const filtered = cat === 'all' ? menuItems.filter(i => i.cat !== 'special') : menuItems.filter(i => i.cat === cat);
             filtered.forEach(i => {
                 grid.innerHTML += `
-                    <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <div class="text-3xl mb-2">${i.emoji}</div>
-                            <h3 class="font-bold text-sm leading-tight">${i.name}</h3>
-                            <p class="text-[10px] text-gray-500 mt-1 line-clamp-2">${i.desc}</p>
-                        </div>
-                        <div class="mt-3 flex justify-between items-center pt-3 border-t border-gray-50">
-                            <span class="font-bold text-sm">${formatCurrency(i.price)}</span>
-                            <button onclick="addToCart(${i.id}, '${i.name}', ${i.price}, false, '${i.cat}')" class="bg-gray-100 w-8 h-8 rounded-full font-bold">+</button>
-                        </div>
+                    <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex flex-col justify-between active:scale-95 transition-all">
+                        <div><div class="text-3xl mb-2">${i.emoji}</div><h3 class="font-bold text-sm leading-tight text-gray-900">${i.name}</h3><p class="text-[10px] text-gray-400 mt-1 line-clamp-2">${i.desc || ''}</p></div>
+                        <div class="mt-3 flex justify-between items-center pt-3 border-t border-gray-50"><span class="font-bold text-sm text-gray-900">${formatCurrency(i.price)}</span><button onclick="addToCart(${i.id}, '${i.name}', ${i.price}, false, '${i.cat}')" class="bg-gray-100 text-gray-600 w-8 h-8 rounded-full font-black hover:bg-orange-100 active:bg-orange-200 transition-colors">+</button></div>
                     </div>
                 `;
             });
@@ -386,88 +456,133 @@
                 document.getElementById('flavor-modal').classList.remove('hidden');
                 return;
             }
-
             if (!isCustom && (cat === 'sandwich' || cat === 'burger' || cat === 'special')) {
                 tempItem = { id, name, price, isCustom, cat };
                 openSauceSelection();
                 return;
             }
-
             cart.push({ id, name, price, isCustom });
             updateUI();
-            if (cat === 'sandwich' || cat === 'burger') document.getElementById('upsell-modal').classList.remove('hidden');
+            showConfirmation();
         }
 
-        const saucesOptions = ["Maíz Lotto", "Ajo Lotto", "Showy", "BBQ", "Chipotle", "Tomate", "Guacamole", "Piña", "Mayonesa"];
-        const vegOptions = ["Lechuga", "Rúgula", "Tomate", "Pepinillos", "Cebolla", "Jalapeños"];
+        async function askChefLotto() {
+            const promptInput = document.getElementById('ai-prompt');
+            const prompt = promptInput.value;
+            if(!prompt) return alert("Por favor escribe qué se te antoja.");
+            const btn = document.getElementById('ai-btn-text');
+            const ldr = document.getElementById('ai-loader');
+            btn.classList.add('hidden'); ldr.classList.remove('hidden');
+
+            const sys = `Suggest a sandwich for Lotto Sandwichería. 
+            Pan: [Especias, Napolitano]. Proteins (Max 2): [Pollo, Ternera, Cordero, Pavo, Pernil]. 
+            Sauces (Max 3): [Maíz Lotto, Ajo Lotto, Showy, BBQ, Chipotle, Guacamole]. 
+            Veg (Max 3): [Lechuga, Rúgula, Tomate, Pepinillos, Cebolla, Jalapeños].
+            Output ONLY valid JSON: {"creative_name":"", "reason":"", "pan":"", "proteins":[], "sauces":[], "veg":[]}`;
+
+            try {
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], systemInstruction: { parts: [{ text: sys }] }, generationConfig: { responseMimeType: "application/json" } })
+                });
+                const d = await res.json();
+                aiRecommendation = JSON.parse(d.candidates[0].content.parts[0].text);
+                document.getElementById('ai-creation-name').textContent = aiRecommendation.creative_name;
+                document.getElementById('ai-creation-reason').textContent = aiRecommendation.reason;
+                document.getElementById('ai-creation-ingredients').innerHTML = `
+                    <li>🍞 <b>Pan:</b> ${aiRecommendation.pan}</li>
+                    <li>🥩 <b>Proteínas:</b> ${aiRecommendation.proteins.join(", ")}</li>
+                    <li>🥣 <b>Salsas:</b> ${aiRecommendation.sauces.join(", ") || "Ninguna"}</li>
+                    <li>🥗 <b>Vegetales:</b> ${aiRecommendation.veg.join(", ") || "Ninguno"}</li>
+                `;
+                document.getElementById('ai-modal').classList.remove('hidden');
+            } catch(e) { 
+                console.error(e);
+                alert("El Chef IA está ocupado atendiendo a otros clientes. ¡Prueba en un momento!"); 
+            } finally { btn.classList.remove('hidden'); ldr.classList.add('hidden'); }
+        }
+
+        function acceptAiRecommendation() {
+            if(!aiRecommendation) return;
+            const { creative_name, pan, proteins, sauces, veg } = aiRecommendation;
+            let name = `IA: ${creative_name} (${pan} + ${proteins.join('/')})`;
+            if(sauces && sauces.length) name += ` (${sauces.join(',')})`;
+            if(veg && veg.length) name += ` + Veg(${veg.join(',')})`;
+            addToCart(888, name, 24900, true, 'sandwich');
+            closeAiModal();
+            document.getElementById('ai-prompt').value = '';
+        }
+
+        function closeAiModal() { document.getElementById('ai-modal').classList.add('hidden'); aiRecommendation = null; }
 
         function openSauceSelection() {
             const list = document.getElementById('sauce-list-modal');
-            list.innerHTML = saucesOptions.map(s => `
-                <label class="border p-2 rounded-lg flex items-center gap-2"><input type="checkbox" name="m-sauce" value="${s}" class="accent-orange-600"><span class="text-xs">${s}</span></label>
-            `).join('');
+            if(!list) return;
+            const opts = ["Maíz Lotto", "Ajo Lotto", "Showy", "BBQ", "Chipotle", "Tomate", "Guacamole", "Piña", "Mayonesa"];
+            list.innerHTML = opts.map(s => `<label class="border p-3 rounded-xl flex items-center gap-2 active:bg-orange-50"><input type="checkbox" name="m-sauce" value="${s}" class="w-5 h-5 accent-orange-600"><span class="text-xs font-bold text-gray-700">${s}</span></label>`).join('');
             document.getElementById('sauce-modal').classList.remove('hidden');
         }
 
         function confirmItemSauces() {
-            const selected = Array.from(document.querySelectorAll('input[name="m-sauce"]:checked')).map(c => c.value);
-            if (selected.length > 3) { alert("Máximo 3 salsas"); return; }
-            if (selected.length > 0) tempItem.name += ` (Salsas: ${selected.join(', ')})`;
+            const sel = Array.from(document.querySelectorAll('input[name="m-sauce"]:checked')).map(c => c.value);
+            if(sel.length > 3) return alert("Por favor elige máximo 3 salsas.");
+            if(sel.length > 0) tempItem.name += ` (${sel.join(', ')})`;
             document.getElementById('sauce-modal').classList.add('hidden');
-            if (tempItem.cat === 'special') finishSpecialItem(); else openVegSelection();
+            if(tempItem.cat === 'special') finishItemSelection(); else openVegSelection();
         }
 
         function openVegSelection() {
             const list = document.getElementById('veg-list-modal');
-            list.innerHTML = vegOptions.map(v => `
-                <label class="border p-2 rounded-lg flex items-center gap-2"><input type="checkbox" name="m-veg" value="${v}" class="accent-green-600"><span class="text-xs">${v}</span></label>
-            `).join('');
+            if(!list) return;
+            const opts = ["Lechuga", "Rúgula", "Tomate", "Pepinillos", "Cebolla", "Jalapeños"];
+            list.innerHTML = opts.map(v => `<label class="border p-3 rounded-xl flex items-center gap-2 active:bg-green-50"><input type="checkbox" name="m-veg" value="${v}" class="w-5 h-5 accent-green-600"><span class="text-xs font-bold text-gray-700">${v}</span></label>`).join('');
             document.getElementById('veg-modal').classList.remove('hidden');
         }
 
         function confirmItemVeggies() {
-            const selected = Array.from(document.querySelectorAll('input[name="m-veg"]:checked')).map(c => c.value);
-            if (selected.length > 3) { alert("Máximo 3 vegetales"); return; }
-            if (selected.length > 0) tempItem.name += ` + Veg(${selected.join(', ')})`;
-            cart.push(tempItem);
-            updateUI();
+            const sel = Array.from(document.querySelectorAll('input[name="m-veg"]:checked')).map(c => c.value);
+            if(sel.length > 3) return alert("Por favor elige máximo 3 vegetales.");
+            if(sel.length > 0) tempItem.name += ` + Veg(${sel.join(', ')})`;
             document.getElementById('veg-modal').classList.add('hidden');
-            document.getElementById('upsell-modal').classList.remove('hidden');
-            tempItem = null;
+            finishItemSelection();
         }
 
-        function finishSpecialItem() {
+        function finishItemSelection() {
             cart.push(tempItem);
             updateUI();
-            document.getElementById('upsell-modal').classList.remove('hidden');
             tempItem = null;
+            document.getElementById('upsell-modal').classList.remove('hidden');
         }
 
         function selectFlavor(f) {
-            cart.push({ id: tempItem.id, name: `${tempItem.name} - ${f}`, price: tempItem.price, isCustom: false });
+            cart.push({ id: tempItem.id, name: `${tempItem.name} (${f})`, price: tempItem.price, isCustom: false });
             updateUI();
             document.getElementById('flavor-modal').classList.add('hidden');
             tempItem = null;
+            showConfirmation();
         }
 
         function addComboToCart(id, name, price) {
             cart.push({ id, name, price, isCustom: false });
             updateUI();
             closeUpsell();
+            showConfirmation();
         }
 
-        function closeUpsell() { document.getElementById('upsell-modal').classList.add('hidden'); }
+        function closeUpsell() { document.getElementById('upsell-modal').classList.add('hidden'); showConfirmation(); }
+        function showConfirmation() { document.getElementById('confirmation-modal').classList.remove('hidden'); }
+        function closeConfirmation() { document.getElementById('confirmation-modal').classList.add('hidden'); }
 
         function updateUI() {
             const count = document.getElementById('cart-count');
             const totalEl = document.getElementById('cart-total');
             const itemsEl = document.getElementById('cart-items');
             count.textContent = cart.length;
-            let total = 0;
-            itemsEl.innerHTML = '';
+            let total = 0; itemsEl.innerHTML = '';
             cart.forEach((i, idx) => {
                 total += i.price;
-                itemsEl.innerHTML += `<div class="bg-white p-3 rounded-xl border flex justify-between items-center"><div class="w-4/5"><p class="font-bold text-sm leading-tight">${i.name}</p><p class="text-xs text-orange-600 font-bold">${formatCurrency(i.price)}</p></div><button onclick="cart.splice(${idx},1); updateUI();" class="text-red-400">✕</button></div>`;
+                itemsEl.innerHTML += `<div class="bg-white p-4 rounded-2xl border flex justify-between items-center shadow-sm animate-fade-in"><div class="w-4/5"><p class="font-bold text-sm text-gray-900">${i.name}</p><p class="text-xs text-orange-600 font-black">${formatCurrency(i.price)}</p></div><button onclick="cart.splice(${idx},1); updateUI();" class="text-red-400 p-2 text-xl font-bold">&times;</button></div>`;
             });
             totalEl.textContent = formatCurrency(total);
         }
@@ -476,81 +591,57 @@
 
         function sendToWhatsApp() {
             const name = document.getElementById('client-name').value;
-            if (!name) return alert("Escribe tu nombre");
-            if (cart.length === 0) return alert("Carrito vacío");
-            let msg = `Hola *Lotto Tabio* 👋\nPedido de: *${name}*\nPago: *${document.getElementById('payment-method').value}*\n---\n`;
-            let total = 0;
-            cart.forEach(i => { msg += `• ${i.name} - ${formatCurrency(i.price)}\n`; total += i.price; });
-            msg += `---\n*TOTAL: ${formatCurrency(total)}*`;
+            if(!name) return alert("Por favor escribe tu nombre.");
+            if(cart.length === 0) return alert("El carrito está vacío.");
+            let msg = `Hola *Lotto Tabio* 👋\n\n👤 *Cliente:* ${name}\n💸 *Pago:* ${document.getElementById('payment-method').value}\n\n*MI PEDIDO:* \n---\n`;
+            let total = 0; cart.forEach(i => { msg += `• ${i.name} - ${formatCurrency(i.price)}\n`; total += i.price; });
+            msg += `---\n💰 *TOTAL: ${formatCurrency(total)}*\n\n_Realizado por PyLoto-Lab_`;
             window.open(`https://wa.me/573024830038?text=${encodeURIComponent(msg)}`);
         }
 
         function nextStep(s) {
             document.querySelectorAll('.builder-step').forEach(el => el.classList.add('hidden'));
             document.getElementById(`step-${s}`).classList.remove('hidden');
-            for(let i=1; i<=4; i++) {
-                const h = document.getElementById(`step-header-${i}`);
-                if(i===s) h.classList.add('text-orange-600'); else h.classList.remove('text-orange-600');
-            }
+            for(let i=1; i<=4; i++) { const h = document.getElementById(`step-header-${i}`); if(i===s) h.classList.add('text-orange-600'); else h.classList.remove('text-orange-600'); }
         }
         function prevStep(s) { nextStep(s); }
 
         function finishBuilder() {
-            const pan = document.querySelector('input[name="pan"]:checked').value;
+            const panEl = document.querySelector('input[name="pan"]:checked');
+            if(!panEl) return alert("Por favor selecciona un pan.");
+            const pan = panEl.value;
             const prots = Array.from(document.querySelectorAll('input[name="protein"]:checked')).map(c => c.value);
             const sauces = Array.from(document.querySelectorAll('input[name="sauce"]:checked')).map(c => c.value);
             const veg = Array.from(document.querySelectorAll('input[name="veg"]:checked')).map(c => c.value);
-            if (prots.length < 1 || prots.length > 2) return alert("Selecciona 1 o 2 proteínas");
-            let name = `Armado: ${pan} + ${prots.join('/')}`;
-            if (sauces.length) name += ` + Salsas(${sauces.join(',')})`;
-            if (veg.length) name += ` + Veg(${veg.join(',')})`;
+            
+            if (prots.length < 1 || prots.length > 2) return alert("Por favor selecciona 1 o 2 proteínas.");
+            
+            let name = `Propio: ${pan} + ${prots.join('/')}`;
+            if(sauces.length) name += ` (${sauces.join(',')})`;
+            if(veg.length) name += ` + Veg(${veg.join(',')})`;
             addToCart(999, name, 24900, true, 'sandwich');
             document.getElementById('builder-form').reset();
             nextStep(1);
         }
 
-        const enforce = (n, l) => {
+        const enforceLimits = (n, l) => {
             document.querySelectorAll(`input[name="${n}"]`).forEach(cb => {
-                cb.addEventListener('change', () => {
-                    if (document.querySelectorAll(`input[name="${n}"]:checked`).length > l) {
-                        cb.checked = false;
-                        alert(`Máximo ${l} opciones`);
-                    }
-                });
+                cb.addEventListener('change', () => { if(document.querySelectorAll(`input[name="${n}"]:checked`).length > l) { cb.checked = false; alert(`Máximo ${l} opciones permitidas en esta sección.`); } });
             });
         }
-        enforce('protein', 2); enforce('sauce', 3); enforce('veg', 3);
 
-        async function askChefLotto() {
-            const p = document.getElementById('ai-prompt').value;
-            if(!p) return alert("Escribe qué se te antoja");
-            const btn = document.getElementById('ai-btn-text');
-            const ldr = document.getElementById('ai-loader');
-            btn.classList.add('hidden'); ldr.classList.remove('hidden');
-            const sys = `Suggest a sandwich. Available: Pan[Especias, Napolitano], Proteins(Max 2)[Pollo, Ternera, Cordero, Pavo, Pernil], Sauces(Max 3), Vegs(Max 3). Output JSON: {name, reason, pan, proteins:[], sauces:[], veg:[]}`;
-            try {
-                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=`, {
-                    method: 'POST', headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ contents: [{ parts: [{ text: p }] }], systemInstruction: { parts: [{ text: sys }] }, generationConfig: { responseMimeType: "application/json" } })
-                });
-                const d = await res.json();
-                const sug = JSON.parse(d.candidates[0].content.parts[0].text);
-                if(confirm(`👨‍🍳 El Chef sugiere: "${sug.name}"\n${sug.reason}\n\n¿Quieres agregarlo al carrito?`)) {
-                    let n = `IA: ${sug.name} (${sug.pan} + ${sug.proteins.join('/')})`;
-                    if(sug.sauces.length) n += ` + Salsas(${sug.sauces.join(',')})`;
-                    if(sug.veg.length) n += ` + Veg(${sug.veg.join(',')})`;
-                    addToCart(888, n, 24900, true, 'sandwich');
-                }
-            } catch(e) { alert("El chef está ocupado, ¡intenta de nuevo!"); }
-            finally { btn.classList.remove('hidden'); ldr.classList.add('hidden'); }
-        }
+        window.onload = () => {
+            renderMenu('all');
+            enforceLimits('protein', 2);
+            enforceLimits('sauce', 3);
+            enforceLimits('veg', 3);
+        };
 
-        window.onload = () => renderMenu('all');
         document.querySelectorAll('.filter-btn').forEach(b => {
-            b.onclick = (e) => {
-                document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('bg-gray-900', 'text-white'));
-                b.classList.add('bg-gray-900', 'text-white');
-                renderMenu(b.dataset.category);
+            b.onclick = (e) => { 
+                document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('bg-gray-900', 'text-white')); 
+                b.classList.add('bg-gray-900', 'text-white'); 
+                renderMenu(b.dataset.category); 
             };
         });
     </script>
