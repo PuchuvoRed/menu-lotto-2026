@@ -68,7 +68,7 @@
     </nav>
 
     <!-- Header -->
-    <header class="bg-gradient-to-br from-orange-50 to-orange-100 px-4 py-8 text-center">
+    <header class="bg-gradient-to-br from-orange-50 to-orange-100 px-4 py-8 text-center border-b border-orange-100">
         <h1 class="text-3xl font-extrabold text-gray-900 leading-tight">Sabor que hace historia <span class="text-orange-600 block text-2xl">desde 2022</span></h1>
         <p class="text-sm text-gray-600 mt-2 italic">Pan artesanal horneado a diario en Tabio.</p>
     </header>
@@ -79,17 +79,17 @@
             <h2 class="text-xl font-bold mb-6 flex items-center gap-2">⭐ Los Más Pedidos</h2>
             <div class="space-y-4">
                 <!-- Tablita de Carnes -->
-                <div class="bg-white rounded-2xl p-5 border-2 border-orange-200 shadow-lg relative overflow-hidden">
+                <div class="bg-white rounded-2xl p-5 border-2 border-orange-200 shadow-lg relative overflow-hidden transition-transform active:scale-[0.98]">
                     <div class="absolute top-0 right-0 bg-orange-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Top Ventas</div>
                     <div class="flex justify-between items-start">
                         <div class="w-2/3">
-                            <h3 class="text-lg font-bold text-gray-900">Tablita de Carnes</h3>
+                            <h3 class="text-lg font-bold text-gray-900 leading-tight">Tablita de Carnes</h3>
                             <p class="text-xs text-gray-500 mt-1 line-clamp-2">3 Carnes (Res, Pollo, Cerdo), papas fritas doradas, salsas y vegetales.</p>
                         </div>
                         <div class="text-4xl">🥩</div>
                     </div>
                     <div class="mt-4 flex items-center justify-between">
-                        <div class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-1 rounded-md text-[10px] font-bold uppercase">💧 INCLUYE AGUA</div>
+                        <div class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-tight">💧 INCLUYE AGUA</div>
                         <div class="flex flex-col items-end">
                             <span class="text-xl font-extrabold text-orange-700">$34.900</span>
                             <button onclick="addToCart(100, 'Tablita de Carnes', 34900, false, 'special')" class="bg-orange-600 text-white px-5 py-2 rounded-full text-xs font-bold mt-1 shadow-md active:bg-orange-700 transition-colors">AGREGAR +</button>
@@ -98,17 +98,17 @@
                 </div>
 
                 <!-- Bowl de Carnes Fit -->
-                <div class="bg-white rounded-2xl p-5 border-2 border-green-200 shadow-lg relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider text-center">Opción Fit 🌱</div>
+                <div class="bg-white rounded-2xl p-5 border-2 border-green-200 shadow-lg relative overflow-hidden transition-transform active:scale-[0.98]">
+                    <div class="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Opción Fit 🌱</div>
                     <div class="flex justify-between items-start">
                         <div class="w-2/3">
-                            <h3 class="text-lg font-bold text-gray-900">Bowl de Carnes Fit</h3>
+                            <h3 class="text-lg font-bold text-gray-900 leading-tight">Bowl de Carnes Fit</h3>
                             <p class="text-xs text-gray-500 mt-1 line-clamp-2">3 Carnes, maduro picado, cherry, aguacate fresco y semillas de chía.</p>
                         </div>
                         <div class="text-4xl">🥗</div>
                     </div>
                     <div class="mt-4 flex items-center justify-between">
-                        <div class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-1 rounded-md text-[10px] font-bold uppercase">💧 INCLUYE AGUA</div>
+                        <div class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-tight">💧 INCLUYE AGUA</div>
                         <div class="flex flex-col items-end">
                             <span class="text-xl font-extrabold text-green-700">$37.900</span>
                             <button onclick="addToCart(102, 'Bowl de Carnes Fit', 37900, false, 'special')" class="bg-green-600 text-white px-5 py-2 rounded-full text-xs font-bold mt-1 shadow-md active:bg-green-700 transition-colors">AGREGAR +</button>
@@ -117,7 +117,7 @@
                 </div>
 
                 <!-- De la Casa -->
-                <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-md">
+                <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-md transition-transform active:scale-[0.98]">
                     <div class="flex justify-between items-start">
                         <div class="w-2/3">
                             <h3 class="text-lg font-bold text-gray-900 leading-tight">Sándwich De La Casa</h3>
@@ -154,11 +154,11 @@
     <!-- Constructor Interactivo -->
     <section id="builder" class="py-12 bg-white border-t border-gray-100 px-4">
         <div class="max-w-4xl mx-auto text-center">
-            <span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Tu Creación</span>
+            <span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest">Tu Creación</span>
             <h2 class="text-2xl font-bold mt-2 text-gray-900">🛠️ Arma Tu Sándwich</h2>
             <p class="text-sm text-gray-500 mb-6">Elige tus ingredientes favoritos por <span class="font-bold text-orange-600">$24.900</span></p>
 
-            <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden text-left max-w-lg mx-auto transform transition-all">
+            <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden text-left max-w-lg mx-auto">
                 <div class="bg-gray-50 px-4 py-3 border-b flex justify-between text-[9px] font-black text-gray-400 uppercase tracking-widest">
                     <span id="step-header-1" class="text-orange-600">1. Pan</span>
                     <span id="step-header-2">2. Carnes</span>
@@ -170,7 +170,7 @@
                     <form id="builder-form">
                         <!-- Paso 1 -->
                         <div id="step-1" class="builder-step block animate-fade-in">
-                            <h3 class="text-base font-bold mb-4">Selecciona tu Pan:</h3>
+                            <h3 class="text-base font-bold mb-4 text-gray-800">Selecciona tu Pan:</h3>
                             <div class="space-y-3">
                                 <label class="border-2 border-gray-100 rounded-2xl p-4 flex items-center gap-3 active:border-orange-500 cursor-pointer transition-all">
                                     <input type="radio" name="pan" value="Especias" class="w-6 h-6 accent-orange-600" checked>
@@ -182,13 +182,13 @@
                                 </label>
                             </div>
                             
-                            <button type="button" onclick="nextStep(2)" class="w-full mt-8 bg-gray-900 text-white py-4 rounded-2xl font-black shadow-lg">CONTINUAR ➡</button>
+                            <button type="button" onclick="nextStep(2)" class="w-full mt-8 bg-gray-900 text-white py-4 rounded-2xl font-black shadow-lg hover:bg-gray-800 active:scale-95 transition-all">CONTINUAR ➡</button>
 
                             <!-- CHEF IA INTEGRADO -->
                             <div class="mt-8 bg-gradient-to-r from-yellow-400 to-orange-500 p-0.5 rounded-2xl shadow-md">
                                 <div class="bg-white p-4 rounded-[14px]">
                                     <div class="flex items-center gap-2 mb-2"><span class="text-xl">🧑‍🍳</span><h3 class="font-bold text-sm text-gray-900">Chef Lotto IA</h3></div>
-                                    <p class="text-[10px] text-gray-500 mb-3 leading-relaxed">¿Sin inspiración? Describe tu antojo y la IA armará tu sándwich:</p>
+                                    <p class="text-[10px] text-gray-500 mb-3 leading-relaxed">¿Sin inspiración? Escribe tu antojo y la IA armará tu sándwich:</p>
                                     <div class="flex gap-2">
                                         <input type="text" id="ai-prompt" placeholder="Ej: Algo picante con mucho pollo..." class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-xs focus:ring-2 focus:ring-orange-300 outline-none">
                                         <button type="button" onclick="askChefLotto()" class="bg-gray-900 text-white px-4 py-2 rounded-xl font-bold text-xs flex-shrink-0 active:scale-95 transition-transform flex items-center justify-center min-w-[80px]">
@@ -202,40 +202,40 @@
 
                         <!-- Paso 2 -->
                         <div id="step-2" class="builder-step hidden animate-fade-in">
-                            <h3 class="text-base font-bold mb-3">Elige Proteínas (Máx 2):</h3>
+                            <h3 class="text-base font-bold mb-3 text-gray-800">Elige Proteínas (Máx 2):</h3>
                             <div class="grid grid-cols-2 gap-3">
-                                <label class="border-2 border-gray-50 rounded-xl p-3 text-center active:border-orange-50 cursor-pointer transition-all"><input type="checkbox" name="protein" value="Pollo" class="accent-orange-600 block mx-auto mb-2 w-6 h-6"><span class="text-xs font-black uppercase">Pechuga</span></label>
-                                <label class="border-2 border-gray-50 rounded-xl p-3 text-center active:border-orange-50 cursor-pointer transition-all"><input type="checkbox" name="protein" value="Ternera" class="accent-orange-600 block mx-auto mb-2 w-6 h-6"><span class="text-xs font-black uppercase">Ternera</span></label>
-                                <label class="border-2 border-gray-50 rounded-xl p-3 text-center active:border-orange-50 cursor-pointer transition-all"><input type="checkbox" name="protein" value="Cordero" class="accent-orange-600 block mx-auto mb-2 w-6 h-6"><span class="text-xs font-black uppercase">Cordero</span></label>
-                                <label class="border-2 border-gray-50 rounded-xl p-3 text-center active:border-orange-50 cursor-pointer transition-all"><input type="checkbox" name="protein" value="Pavo" class="accent-orange-600 block mx-auto mb-2 w-6 h-6"><span class="text-xs font-black uppercase">Jamón Pavo</span></label>
+                                <label class="border-2 border-gray-50 rounded-xl p-3 text-center active:border-orange-500 cursor-pointer transition-all"><input type="checkbox" name="protein" value="Pollo" class="accent-orange-600 block mx-auto mb-2 w-6 h-6"><span class="text-xs font-black uppercase">Pechuga</span></label>
+                                <label class="border-2 border-gray-50 rounded-xl p-3 text-center active:border-orange-500 cursor-pointer transition-all"><input type="checkbox" name="protein" value="Ternera" class="accent-orange-600 block mx-auto mb-2 w-6 h-6"><span class="text-xs font-black uppercase">Ternera</span></label>
+                                <label class="border-2 border-gray-50 rounded-xl p-3 text-center active:border-orange-500 cursor-pointer transition-all"><input type="checkbox" name="protein" value="Cordero" class="accent-orange-600 block mx-auto mb-2 w-6 h-6"><span class="text-xs font-black uppercase">Cordero</span></label>
+                                <label class="border-2 border-gray-50 rounded-xl p-3 text-center active:border-orange-500 cursor-pointer transition-all"><input type="checkbox" name="protein" value="Pavo" class="accent-orange-600 block mx-auto mb-2 w-6 h-6"><span class="text-xs font-black uppercase">Jamón Pavo</span></label>
                                 <label class="border-2 border-gray-50 rounded-xl p-3 text-center active:border-orange-50 cursor-pointer transition-all"><input type="checkbox" name="protein" value="Pernil" class="accent-orange-600 block mx-auto mb-2 w-6 h-6"><span class="text-xs font-black uppercase">Pernil Cerdo</span></label>
                             </div>
                             <div class="mt-8 flex gap-3">
                                 <button type="button" onclick="prevStep(1)" class="w-1/3 bg-gray-100 text-gray-500 py-4 rounded-2xl font-bold text-sm">ATRÁS</button>
-                                <button type="button" onclick="nextStep(3)" class="w-2/3 bg-gray-900 text-white py-4 rounded-2xl font-black">CONTINUAR ➡</button>
+                                <button type="button" onclick="nextStep(3)" class="w-2/3 bg-gray-900 text-white py-4 rounded-2xl font-black shadow-lg">CONTINUAR ➡</button>
                             </div>
                         </div>
 
                         <!-- Paso 3 -->
                         <div id="step-3" class="builder-step hidden animate-fade-in">
-                            <h3 class="text-base font-bold mb-3">Salsas (Máx 3):</h3>
-                            <div class="grid grid-cols-2 gap-2">
-                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Maíz Lotto" class="accent-orange-600 w-5 h-5"><span class="text-xs font-bold text-gray-700">Maíz Lotto</span></label>
-                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Ajo Lotto" class="accent-orange-600 w-5 h-5"><span class="text-xs font-bold text-gray-700">Ajo Lotto</span></label>
-                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Showy" class="accent-orange-600 w-5 h-5"><span class="text-xs font-bold text-gray-700">Showy</span></label>
-                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="BBQ" class="accent-orange-600 w-5 h-5"><span class="text-xs font-bold text-gray-700">BBQ</span></label>
-                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Chipotle" class="accent-orange-600 w-5 h-5"><span class="text-xs font-bold text-gray-700">Chipotle</span></label>
-                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Guacamole" class="accent-orange-600 w-5 h-5"><span class="text-xs font-bold text-gray-700">Guacamole</span></label>
+                            <h3 class="text-base font-bold mb-3 text-gray-800">Salsas (Máx 3):</h3>
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Maíz Lotto" class="accent-orange-600 w-5 h-5"><span class="font-bold text-gray-700">Maíz Lotto</span></label>
+                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Ajo Lotto" class="accent-orange-600 w-5 h-5"><span class="font-bold text-gray-700">Ajo Lotto</span></label>
+                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Showy" class="accent-orange-600 w-5 h-5"><span class="font-bold text-gray-700">Showy</span></label>
+                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="BBQ" class="accent-orange-600 w-5 h-5"><span class="font-bold text-gray-700">BBQ</span></label>
+                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Chipotle" class="accent-orange-600 w-5 h-5"><span class="font-bold text-gray-700">Chipotle</span></label>
+                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-orange-50"><input type="checkbox" name="sauce" value="Guacamole" class="accent-orange-600 w-5 h-5"><span class="font-bold text-gray-700">Guacamole</span></label>
                             </div>
                             <div class="mt-8 flex gap-3">
                                 <button type="button" onclick="prevStep(2)" class="w-1/3 bg-gray-100 text-gray-500 py-4 rounded-2xl font-bold text-sm">ATRÁS</button>
-                                <button type="button" onclick="nextStep(4)" class="w-2/3 bg-gray-900 text-white py-4 rounded-2xl font-black">CONTINUAR ➡</button>
+                                <button type="button" onclick="nextStep(4)" class="w-2/3 bg-gray-900 text-white py-4 rounded-2xl font-black shadow-lg">CONTINUAR ➡</button>
                             </div>
                         </div>
 
                         <!-- Paso 4 -->
                         <div id="step-4" class="builder-step hidden animate-fade-in">
-                            <h3 class="text-base font-bold mb-3">Vegetales (Máx 3):</h3>
+                            <h3 class="text-base font-bold mb-3 text-gray-800">Vegetales (Máx 3):</h3>
                             <div class="grid grid-cols-2 gap-2 text-xs">
                                 <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-green-50"><input type="checkbox" name="veg" value="Lechuga" class="accent-green-600 w-5 h-5"><span class="font-bold">Lechuga</span></label>
                                 <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer active:bg-green-50"><input type="checkbox" name="veg" value="Rúgula" class="accent-green-600 w-5 h-5"><span class="font-bold">Rúgula</span></label>
@@ -246,7 +246,7 @@
                             </div>
                             <div class="mt-8 flex gap-3">
                                 <button type="button" onclick="prevStep(3)" class="w-1/3 bg-gray-100 text-gray-500 py-4 rounded-2xl font-bold text-sm">ATRÁS</button>
-                                <button type="button" onclick="finishBuilder()" class="w-2/3 bg-orange-600 text-white py-4 rounded-2xl font-black shadow-lg">AGREGAR! 🍔</button>
+                                <button type="button" onclick="finishBuilder()" class="w-2/3 bg-orange-600 text-white py-4 rounded-2xl font-black shadow-lg active:scale-95 transition-transform">AGREGAR! 🍔</button>
                             </div>
                         </div>
                     </form>
@@ -291,7 +291,8 @@
 
     <!-- Sugerencia IA -->
     <div id="ai-modal" class="fixed inset-0 z-[110] hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border-2 border-yellow-400 transform animate-slide-up">
+        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border-2 border-yellow-400 transform animate-slide-up relative">
+            <button onclick="closeAiModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl font-bold">&times;</button>
             <div class="bg-gradient-to-r from-yellow-400 to-orange-500 p-6 text-center">
                 <span class="text-4xl block mb-2">🧑‍🍳✨</span>
                 <h3 class="text-xl font-black text-gray-900 tracking-tight" id="ai-modal-title">Propuesta del Chef</h3>
@@ -317,25 +318,28 @@
 
     <!-- Modal de Salsas -->
     <div id="sauce-modal" class="fixed inset-0 z-[80] hidden bg-black/70 flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl animate-slide-up">
+        <div class="bg-white w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl animate-slide-up relative">
+            <button onclick="closeSauceSelectionModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl font-bold">&times;</button>
             <div class="bg-orange-50 p-5 text-center border-b"><h3 class="text-xl font-black text-gray-900">🥣 Elige tus Salsas</h3><p class="text-[10px] text-orange-600 font-black uppercase mt-1">Máximo 3 opciones</p></div>
             <div class="p-5 grid grid-cols-2 gap-2" id="sauce-list-modal"></div>
-            <div class="p-5 border-t"><button onclick="confirmItemSauces()" class="w-full bg-orange-600 text-white py-3 rounded-xl font-black shadow-lg">SIGUIENTE ➡</button></div>
+            <div class="p-5 border-t"><button onclick="confirmItemSauces()" class="w-full bg-orange-600 text-white py-4 rounded-2xl font-black shadow-lg">SIGUIENTE ➡</button></div>
         </div>
     </div>
 
     <!-- Modal de Vegetales -->
     <div id="veg-modal" class="fixed inset-0 z-[80] hidden bg-black/70 flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl animate-slide-up">
+        <div class="bg-white w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl animate-slide-up relative">
+            <button onclick="closeVegSelectionModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl font-bold">&times;</button>
             <div class="bg-green-50 p-5 text-center border-b"><h3 class="text-xl font-black text-green-900">🥗 Vegetales</h3><p class="text-[10px] text-green-700 font-black uppercase mt-1">Opcional - Máximo 3</p></div>
             <div class="p-5 grid grid-cols-2 gap-2" id="veg-list-modal"></div>
-            <div class="p-5 border-t"><button onclick="confirmItemVeggies()" class="w-full bg-green-600 text-white py-3 rounded-xl font-black shadow-lg">AGREGAR AL PEDIDO</button></div>
+            <div class="p-5 border-t"><button onclick="confirmItemVeggies()" class="w-full bg-green-600 text-white py-4 rounded-2xl font-black shadow-lg">AGREGAR AL PEDIDO</button></div>
         </div>
     </div>
 
     <!-- Upsell Combo -->
     <div id="upsell-modal" class="fixed inset-0 z-[60] hidden bg-black/70 flex items-end sm:items-center justify-center">
-        <div class="bg-white w-full sm:max-w-md rounded-t-3xl sm:rounded-2xl animate-slide-up overflow-hidden shadow-2xl">
+        <div class="bg-white w-full sm:max-w-md rounded-t-3xl sm:rounded-2xl animate-slide-up overflow-hidden shadow-2xl relative">
+            <button onclick="closeUpsell()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl font-bold">&times;</button>
             <div class="bg-orange-50 p-6 text-center border-b border-orange-100"><h3 class="text-xl font-black text-gray-900">¡Hazlo Combo y Ahorra! 🍟🥤</h3></div>
             <div class="p-4 space-y-3 max-h-[60vh] overflow-y-auto hide-scrollbar">
                 <div onclick="addComboToCart(20, 'Combo Ligero', 6900)" class="flex justify-between items-center p-4 border-2 border-gray-50 rounded-2xl active:border-orange-400 cursor-pointer transition-all">
@@ -361,7 +365,8 @@
 
     <!-- Sabores de Jugos -->
     <div id="flavor-modal" class="fixed inset-0 z-[80] hidden bg-black/70 flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden animate-slide-up">
+        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden animate-slide-up relative">
+            <button onclick="closeFlavorModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl font-bold">&times;</button>
             <div class="bg-orange-50 p-5 text-center border-b font-black text-gray-900">🍓 Sabor del Jugo</div>
             <div class="p-5 grid grid-cols-2 gap-3">
                 <button onclick="selectFlavor('Fresa')" class="p-4 border-2 rounded-2xl font-bold active:bg-orange-100 hover:border-orange-500 transition-all">🍓 Fresa</button>
@@ -383,7 +388,7 @@
             <div class="flex justify-between items-center mb-6"><span class="text-gray-500 font-bold uppercase tracking-widest text-xs">Total a pagar</span><span id="cart-total" class="text-4xl font-black text-gray-900">$0</span></div>
             <input type="text" id="client-name" placeholder="Escribe tu Nombre Completo" class="w-full p-4 mb-4 bg-gray-50 border border-gray-200 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-orange-500 shadow-sm">
             <div class="relative mb-6">
-                <select id="payment-method" class="w-full p-4 bg-orange-100 border-2 border-orange-500 rounded-2xl font-black text-gray-900 appearance-none outline-none shadow-sm">
+                <select id="payment-method" class="w-full p-4 bg-orange-100 border-2 border-orange-500 rounded-2xl font-black text-gray-900 appearance-none outline-none shadow-sm cursor-pointer">
                     <option value="Transferencia">Transferencia (Nequi / Davi)</option>
                     <option value="Efectivo">Efectivo</option>
                     <option value="Tarjeta">Tarjeta de Crédito</option>
@@ -430,7 +435,7 @@
             { id: 17, name: "Gaseosa Pet 400ml", price: 4500, desc: "Coca-Cola / Postobón.", cat: "drinks", emoji: "🥤" },
             { id: 18, name: "Gaseosa Mini 250ml", price: 2500, desc: "Coca-Cola / Postobón.", cat: "drinks", emoji: "🥤" },
             { id: 19, name: "Agua / Con Gas", price: 4000, desc: "Botella 500ml.", cat: "drinks", emoji: "💧" },
-            { id: 40, name: "Café con Leche", price: 4000, desc: "Caliente y espumoso.", cat: "drinks", emoji: "☕" },
+            { id: 40, name: "Café con Leche", price: 4500, desc: "Caliente y espumoso.", cat: "drinks", emoji: "☕" },
             { id: 41, name: "Tinto", price: 3000, desc: "Café negro artesanal.", cat: "drinks", emoji: "☕" },
             { id: 42, name: "Aromática de bolsita", price: 3000, desc: "Infusión de frutas o hierbas.", cat: "drinks", emoji: "🍵" },
 
@@ -477,7 +482,13 @@
             }
             cart.push({ id, name, price, isCustom });
             updateUI();
-            showConfirmation();
+            
+            // Trigger Combo para todos los sandwiches y burgers (incluidos los Custom)
+            if (cat === 'sandwich' || cat === 'burger') {
+                 document.getElementById('upsell-modal').classList.remove('hidden');
+            } else {
+                 showConfirmation();
+            }
         }
 
         async function askChefLotto() {
@@ -533,7 +544,7 @@
             const list = document.getElementById('sauce-list-modal');
             if(!list) return;
             const opts = ["Maíz Lotto", "Ajo Lotto", "Showy", "BBQ", "Chipotle", "Tomate", "Guacamole", "Piña", "Mayonesa"];
-            list.innerHTML = opts.map(s => `<label class="border-2 border-gray-50 p-4 rounded-2xl flex items-center gap-2 active:border-orange-500 transition-all"><input type="checkbox" name="m-sauce" value="${s}" class="w-6 h-6 accent-orange-600"><span class="text-xs font-black text-gray-700">${s}</span></label>`).join('');
+            list.innerHTML = opts.map(s => `<label class="border-2 border-gray-50 p-4 rounded-2xl flex items-center gap-2 active:border-orange-500 transition-all cursor-pointer"><input type="checkbox" name="m-sauce" value="${s}" class="w-6 h-6 accent-orange-600"><span class="text-xs font-black text-gray-700">${s}</span></label>`).join('');
             document.getElementById('sauce-modal').classList.remove('hidden');
         }
 
@@ -549,7 +560,7 @@
             const list = document.getElementById('veg-list-modal');
             if(!list) return;
             const opts = ["Lechuga", "Rúgula", "Tomate", "Pepinillos", "Cebolla", "Jalapeños"];
-            list.innerHTML = opts.map(v => `<label class="border-2 border-gray-50 p-4 rounded-2xl flex items-center gap-2 active:bg-green-50"><input type="checkbox" name="m-veg" value="${v}" class="w-6 h-6 accent-green-600"><span class="text-xs font-black text-gray-700">${v}</span></label>`).join('');
+            list.innerHTML = opts.map(v => `<label class="border-2 border-gray-50 p-4 rounded-2xl flex items-center gap-2 active:bg-green-500 transition-all cursor-pointer"><input type="checkbox" name="m-veg" value="${v}" class="w-6 h-6 accent-green-600"><span class="text-xs font-black text-gray-700">${v}</span></label>`).join('');
             document.getElementById('veg-modal').classList.remove('hidden');
         }
 
@@ -579,11 +590,17 @@
         function addComboToCart(id, name, price) {
             cart.push({ id, name, price, isCustom: false });
             updateUI();
-            closeUpsell();
-            showConfirmation();
+            closeUpsell(); // closeUpsell ya dispara showConfirmation()
         }
 
-        function closeUpsell() { document.getElementById('upsell-modal').classList.add('hidden'); }
+        function closeUpsell() { 
+            document.getElementById('upsell-modal').classList.add('hidden'); 
+            showConfirmation(); 
+        }
+        function closeSauceSelectionModal() { document.getElementById('sauce-modal').classList.add('hidden'); tempItem = null; }
+        function closeVegSelectionModal() { document.getElementById('veg-modal').classList.add('hidden'); tempItem = null; }
+        function closeFlavorModal() { document.getElementById('flavor-modal').classList.add('hidden'); tempItem = null; }
+        
         function showConfirmation() { document.getElementById('confirmation-modal').classList.remove('hidden'); }
         function closeConfirmation() { document.getElementById('confirmation-modal').classList.add('hidden'); }
 
@@ -595,7 +612,7 @@
             let total = 0; itemsEl.innerHTML = '';
             cart.forEach((i, idx) => {
                 total += i.price;
-                itemsEl.innerHTML += `<div class="bg-white p-4 rounded-2xl border-2 border-gray-50 flex justify-between items-center shadow-sm animate-fade-in"><div class="w-4/5"><p class="font-black text-sm text-gray-900">${i.name}</p><p class="text-xs text-orange-600 font-black">${formatCurrency(i.price)}</p></div><button onclick="cart.splice(${idx},1); updateUI();" class="text-red-400 p-2 text-2xl font-black">&times;</button></div>`;
+                itemsEl.innerHTML += `<div class="bg-white p-4 rounded-2xl border-2 border-gray-50 flex justify-between items-center shadow-sm animate-fade-in"><div class="w-4/5"><p class="font-black text-sm text-gray-900 leading-tight">${i.name}</p><p class="text-xs text-orange-600 font-black mt-0.5">${formatCurrency(i.price)}</p></div><button onclick="cart.splice(${idx},1); updateUI();" class="text-red-400 p-2 text-2xl font-black">&times;</button></div>`;
             });
             totalEl.textContent = formatCurrency(total);
         }
@@ -632,7 +649,10 @@
             let name = `PROPIO: ${pan} + ${prots.join('/')}`;
             if(sauces.length) name += ` (${sauces.join(',')})`;
             if(veg.length) name += ` + Veg(${veg.join(',')})`;
+            
+            // Llamamos a addToCart con categoría sandwich para que dispare el Upsell
             addToCart(999, name, 24900, true, 'sandwich');
+            
             document.getElementById('builder-form').reset();
             nextStep(1);
         }
